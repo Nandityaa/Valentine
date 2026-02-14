@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>💝 Untuk Bibub 💝</title>
+    <meta name="description" content="Kejutan spesial di Hari Valentine untukmu.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ========== RESET & VARIABLES ========== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #fff2f5;
+            --card: #ffffff;
+            --pink-1: #fde2e8;
+            --pink-2: #f8c8d4;
+            --pink-3: #f0a4b8;
+            --pink-4: #e8899e;
+            --pink-5: #d97089;
+            --pink-6: #c75b7a;
+            --text: #4a2d3a;
+            --text-sub: #7d5568;
+            --text-muted: #b08a98;
+            --green-1: #d4edda;
+            --green-2: #a3d9a5;
+            --green-3: #72c576;
+            --shadow-sm: 0 2px 12px rgba(199, 91, 122, .1);
+            --shadow-md: 0 6px 24px rgba(199, 91, 122, .15);
+            --shadow-lg: 0 12px 40px rgba(199, 91, 122, .2);
+            --r: 16px;
+            --r-lg: 24px;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100dvh;
+            overflow-x: hidden;
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image:
+                radial-gradient(circle at 25% 20%, rgba(248, 200, 212, .45) 0%, transparent 55%),
+                radial-gradient(circle at 75% 75%, rgba(240, 164, 184, .3) 0%, transparent 55%),
+                linear-gradient(180deg, #fff2f5 0%, #fce4ec 100%);
+        }
+
+        /* ========== FLOATING HEARTS ========== */
+        .hearts-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .hrt {
+            position: absolute;
+            opacity: .12;
+            animation: rise linear infinite;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(105vh) rotate(0);
+                opacity: 0;
+            }
+
+            8% {
+                opacity: .12;
+            }
+
+            92% {
+                opacity: .12;
+            }
+
+            100% {
+                transform: translateY(-8vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ========== SCENE SYSTEM ========== */
+        .scene {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            min-height: 100dvh;
+            padding: 28px 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .scene.active {
+            display: flex;
+            animation: fadeUp .55s ease both;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========== SHARED BUTTON ========== */
+        .btn {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 14px 38px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all .25s ease;
+            letter-spacing: .3px;
+            position: relative;
+        }
+
+        .btn-pink {
+            background: linear-gradient(135deg, var(--pink-3), var(--pink-4));
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(232, 137, 158, .4);
+        }
+
+        .btn-pink:active {
+            transform: scale(.96);
+        }
+
+        /* ========== SCENE 1: INTRO ========== */
+        #s1 .big-heart {
+            font-size: 4.5rem;
+            animation: beat 1.6s ease-in-out infinite;
+            margin-bottom: 14px;
+        }
+
+        @keyframes beat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            14% {
+                transform: scale(1.18);
+            }
+
+            28% {
+                transform: scale(1);
+            }
+
+            42% {
+                transform: scale(1.12);
+            }
+        }
+
+        #s1 h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.2rem;
+            color: var(--pink-6);
+            margin-bottom: 6px;
+        }
+
+        #s1 .sub {
+            font-size: .95rem;
+            color: var(--text-sub);
+            margin-bottom: 30px;
+        }
+
+        /* ========== SCENE 2: CLAW MACHINE ========== */
+        .machine {
+            width: min(340px, 92vw);
+            background: var(--card);
+            border-radius: var(--r-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            border: 3px solid var(--pink-2);
+            margin-bottom: 2px;
+        }
+
+        .machine-top {
+            background: linear-gradient(135deg, var(--pink-3), var(--pink-5));
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+            font-family: 'Pacifico', cursive;
+            font-size: 1.15rem;
+        }
+
+        .machine-glass {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(180deg, #fef8fa 0%, #fff0f3 100%);
+            overflow: hidden;
+        }
+
+        /* Rail */
+        .rail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 14px;
+            background: linear-gradient(180deg, var(--pink-2), var(--pink-1));
+            border-bottom: 2px solid var(--pink-3);
+        }
+
+        /* Claw assembly */
+        .claw-asm {
+            position: absolute;
+            top: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: left .12s ease;
+        }
+
+        .claw-string {
+            width: 3px;
+            background: var(--pink-5);
+            border-radius: 2px;
+            height: 16px;
+            transition: height .45s ease;
+        }
+
+        .claw-head {
+            font-size: 2rem;
+            line-height: 1;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .12));
+        }
+
+        /* States */
+        .claw-asm.drop .claw-string {
+            height: 175px;
+        }
+
+        .claw-asm.lift .claw-string {
+            height: 16px;
+        }
+
+        /* Prize */
+        .prize {
+            position: absolute;
+            bottom: 42px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.6rem;
+            filter: drop-shadow(0 4px 8px rgba(200, 100, 130, .25));
+            transition: bottom .45s ease, left .12s ease, transform .12s ease;
+        }
+
+        .prize.grabbed {
+            bottom: auto;
+            transform: none;
+        }
+
+        /* Floor */
+        .machine-floor {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 36px;
+            background: linear-gradient(0deg, var(--pink-2), rgba(248, 200, 212, .25));
+            border-top: 2px dashed var(--pink-3);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 5px;
+            font-size: .75rem;
+            letter-spacing: 6px;
+            opacity: .55;
+        }
+
+        /* Dpad Controls */
+        .controls {
+            padding: 14px 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(0deg, #fff9fb, var(--card));
+        }
+
+        .ctrl-btn {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            width: 56px;
+            height: 56px;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all .15s ease;
+            color: #fff;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .ctrl-btn:active {
+            transform: scale(.9);
+        }
+
+        .ctrl-left,
+        .ctrl-right {
+            background: linear-gradient(135deg, var(--pink-2), var(--pink-3));
+        }
+
+        .ctrl-grab {
+            background: linear-gradient(135deg, var(--pink-4), var(--pink-6));
+            width: 72px;
+            height: 72px;
+            font-size: 1rem;
+            font-weight: 700;
+            box-shadow: 0 4px 18px rgba(199, 91, 122, .35);
+        }
+
+        .ctrl-grab:disabled {
+            opacity: .45;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .claw-msg {
+            font-size: .85rem;
+            color: var(--text-sub);
+            font-weight: 600;
+            padding: 0 12px 12px;
+            text-align: center;
+            min-height: 22px;
+            background: var(--card);
+        }
+
+        /* ========== SCENE 3: LOVE LETTER ========== */
+        .envelope {
+            width: min(400px, 90vw);
+            perspective: 700px;
+        }
+
+        .letter {
+            background: var(--card);
+            border-radius: var(--r-lg);
+            padding: 34px 26px;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--pink-2);
+            position: relative;
+            animation: unfold .75s ease both;
+        }
+
+        @keyframes unfold {
+            0% {
+                transform: rotateX(80deg) scale(.65);
+                opacity: 0;
+            }
+
+            100% {
+                transform: rotateX(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .letter::before {
+            content: '💌';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.4rem;
+        }
+
+        .letter h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            color: var(--pink-6);
+            margin: 10px 0 18px;
+        }
+
+        .letter p {
+            font-size: .97rem;
+            line-height: 1.85;
+            color: var(--text);
+            text-align: left;
+            margin-bottom: 18px;
+        }
+
+        .letter .sign {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.1rem;
+            color: var(--pink-5);
+            text-align: right;
+        }
+
+        .letter .btn-pink {
+            margin-top: 22px;
+        }
+
+        /* ========== SCENE 4: PROPOSAL ========== */
+        #s4 .ring {
+            font-size: 3.8rem;
+            margin-bottom: 14px;
+            animation: beat 1.4s ease-in-out infinite;
+        }
+
+        #s4 h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.9rem;
+            color: var(--pink-6);
+            margin-bottom: 28px;
+        }
+
+        .answers {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            position: relative;
+            width: 100%;
+            min-height: 220px;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, var(--green-2), var(--green-3));
+            color: #fff;
+            font-size: 1.25rem;
+            padding: 16px 50px;
+            box-shadow: 0 4px 16px rgba(114, 197, 118, .4);
+        }
+
+        .btn-yes:active {
+            transform: scale(1.06);
+        }
+
+        .btn-no {
+            background: linear-gradient(135deg, #d4a4a4, #c08080);
+            color: #fff;
+            font-size: .88rem;
+            padding: 11px 26px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            transition: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: none;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ========== CONFETTI ========== */
+        .confetti-box {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 100;
+            overflow: hidden;
+        }
+
+        .confetti {
+            position: absolute;
+            top: -12px;
+            border-radius: 2px;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(105vh) rotate(800deg);
+                opacity: 0;
+            }
+        }
+
+        /* ========== SCENE 5: GIFTS ========== */
+        #s5 h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.6rem;
+            color: var(--pink-6);
+            margin-bottom: 24px;
+        }
+
+        .gifts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            width: min(380px, 90vw);
+            margin-bottom: 24px;
+        }
+
+        .gbox {
+            background: var(--card);
+            border-radius: var(--r);
+            padding: 22px 10px;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            transition: all .25s ease;
+            border: 2px solid var(--pink-2);
+            min-height: 115px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .gbox:active {
+            transform: scale(.95);
+        }
+
+        .gbox .ico {
+            font-size: 2.5rem;
+            transition: transform .4s ease;
+        }
+
+        .gbox .lbl {
+            font-weight: 700;
+            font-size: .82rem;
+            color: var(--pink-4);
+        }
+
+        .gbox .prz {
+            display: none;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--pink-6);
+        }
+
+        .gbox.open {
+            border-color: var(--pink-3);
+            animation: shake .4s ease;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: rotate(0);
+            }
+
+            20% {
+                transform: rotate(-6deg);
+            }
+
+            40% {
+                transform: rotate(6deg);
+            }
+
+            60% {
+                transform: rotate(-4deg);
+            }
+
+            80% {
+                transform: rotate(4deg);
+            }
+        }
+
+        .gbox.open .ico {
+            transform: scale(1.2) rotate(-8deg);
+        }
+
+        .gbox.open .lbl {
+            display: none;
+        }
+
+        .gbox.open .prz {
+            display: block;
+            animation: pop .45s ease both;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0);
+            }
+
+            60% {
+                transform: scale(1.25);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .bye {
+            display: none;
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            color: var(--pink-6);
+            animation: fadeUp .7s ease both;
+        }
+
+        .bye.show {
+            display: block;
+        }
+
+        /* ========== RESPONSIVE DESKTOP ========== */
+        @media (min-width: 768px) {
+            #s1 h1 {
+                font-size: 3rem;
+            }
+
+            #s1 .big-heart {
+                font-size: 5.5rem;
+            }
+
+            .machine {
+                width: 380px;
+            }
+
+            .machine-glass {
+                height: 340px;
+            }
+
+            .letter {
+                padding: 44px 38px;
+            }
+
+            .letter h2 {
+                font-size: 1.8rem;
+            }
+
+            #s4 h2 {
+                font-size: 2.4rem;
+            }
+
+            .gifts {
+                gap: 18px;
+            }
+
+            .gbox {
+                min-height: 140px;
+            }
+
+            .bye {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating Hearts -->
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <!-- ====== SCENE 1: INTRO ====== -->
+    <section class="scene active" id="s1">
+        <div class="big-heart">💝</div>
+        <h1>Untuk Bibub 🤍</h1>
+        <p class="sub">acuu adaa sesuatu buat camu xixixi 🥰</p>
+        <button class="btn btn-pink" onclick="mulai()"> Mulai Main </button>
+    </section>
+
+    <!-- ====== SCENE 2: CLAW MACHINE ====== -->
+    <section class="scene" id="s2">
+        <div class="machine">
+            <div class="machine-top">🎀 Tangkap Hadiah! 🎀</div>
+            <div class="machine-glass" id="glass">
+                <div class="rail"></div>
+                <div class="claw-asm" id="claw">
+                    <div class="claw-string" id="string"></div>
+                    <div class="claw-head">🪝</div>
+                </div>
+                <div class="prize" id="prize">🧸</div>
+                <div class="machine-floor">💕 💕 💕</div>
+            </div>
+            <div class="claw-msg" id="msg">Geser, lalu tekan Ambil! 💕</div>
+            <div class="controls">
+                <button class="ctrl-btn ctrl-left" id="btnL" aria-label="Kiri">◀</button>
+                <button class="ctrl-btn ctrl-grab" id="btnG" onclick="grab()">Ambil!</button>
+                <button class="ctrl-btn ctrl-right" id="btnR" aria-label="Kanan">▶</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== SCENE 3: LOVE LETTER ====== -->
+    <section class="scene" id="s3">
+        <div class="envelope">
+            <div class="letter">
+                <h2>Hai, Bibub cayang... 💗</h2>
+                <p>
+                    Camatt Hari Valentine yaw! 🥳💕<br><br>
+                    ndaa kerasa cekali kita udah mau 9 bulan bareng. Maacii yaaww udah selalu ada buat acu, udah jadi
+                    pacar yang
+                    baik, dan selalu bikin aku seneng (igisin dik kakunya). 🥰<br><br>
+                    acuu cayang banget sama camu! 💖
+                </p>
+                <div class="sign">Nanditya</div>
+                <button class="btn btn-pink" onclick="go(4)">Lanjut 💝</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== SCENE 4: PROPOSAL ====== -->
+    <section class="scene" id="s4">
+        <div class="ring">💍</div>
+        <h2>Will you be my Valentine?</h2>
+        <div class="answers" id="answers">
+            <button class="btn btn-yes" onclick="iya()">Mau Dong! 💖</button>
+            <button class="btn-no" id="btnNo">Tak nak 😢</button>
+        </div>
+    </section>
+
+    <!-- ====== SCENE 5: GIFTS ====== -->
+    <section class="scene" id="s5">
+        <h2>Yey! Hadiah buat kamu: 🎁</h2>
+        <div class="gifts">
+            <div class="gbox" onclick="buka(this,'Cium 😘')">
+                <div class="ico">🎁</div>
+                <div class="lbl">Klik aku!</div>
+                <div class="prz"></div>
+            </div>
+            <div class="gbox" onclick="buka(this,'ah ah 😚')">
+                <div class="ico">🎁</div>
+                <div class="lbl">Klik aku!</div>
+                <div class="prz"></div>
+            </div>
+            <div class="gbox" onclick="buka(this,'Cium 😽')">
+                <div class="ico">🎁</div>
+                <div class="lbl">Klik aku!</div>
+                <div class="prz"></div>
+            </div>
+        </div>
+        <div class="bye" id="bye">I love you forever! ❤️</div>
+    </section>
+
+    <!-- Confetti layer -->
+    <div class="confetti-box" id="confettiBox"></div>
+
+    <!-- 🎵 BACKGROUND MUSIC PLACEHOLDER
+     Uncomment and replace the src with your MP3 link:
+     <audio id="bgm" loop><source src="bgm.mp3" type="audio/mpeg"></audio>
+-->
+
+    <script>
+        /* ========================================
+           FLOATING HEARTS BACKGROUND
+           ======================================== */
+        (function () {
+            const c = document.getElementById('heartsBg');
+            const h = ['💕', '💗', '💖', '💝', '🩷', '♥'];
+            for (let i = 0; i < 16; i++) {
+                const s = document.createElement('span');
+                s.className = 'hrt';
+                s.textContent = h[Math.floor(Math.random() * h.length)];
+                s.style.left = Math.random() * 100 + '%';
+                s.style.fontSize = (.75 + Math.random() * 1.1) + 'rem';
+                s.style.animationDuration = (9 + Math.random() * 13) + 's';
+                s.style.animationDelay = (Math.random() * 10) + 's';
+                c.appendChild(s);
+            }
+        })();
+
+        /* ========================================
+           SCENE NAVIGATION
+           ======================================== */
+        function go(n) {
+            document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
+            document.getElementById('s' + n).classList.add('active');
+            if (n === 4) initNo();
+        }
+
+        /* ========================================
+           SCENE 1 — MULAI
+           ======================================== */
+        function mulai() {
+            // Initialize audio context
+            const bgm = document.getElementById('bgm');
+            if (bgm) bgm.play().catch(() => { });
+            go(2);
+            startClaw();
+        }
+
+        /* ========================================
+           SCENE 2 — CLAW MACHINE
+           ======================================== */
+        let clawPos = 0;       // pixel position of claw
+        let dropping = false;
+        let won = false;
+        const STEP = 18;       // pixels per button press
+        let moveInterval = null;
+
+        function startClaw() {
+            const glass = document.getElementById('glass');
+            const claw = document.getElementById('claw');
+            clawPos = (glass.clientWidth / 2) - 20;
+            claw.style.left = clawPos + 'px';
+            claw.className = 'claw-asm';
+            dropping = false;
+            won = false;
+            document.getElementById('btnG').disabled = false;
+            document.getElementById('msg').textContent = 'Geser trs ambil!';
+
+            // Reset prize
+            const prize = document.getElementById('prize');
+            prize.className = 'prize';
+            prize.style.bottom = '42px';
+            prize.style.left = '50%';
+            prize.style.transform = 'translateX(-50%)';
+
+            initDpad();
+        }
+
+        function initDpad() {
+            const btnL = document.getElementById('btnL');
+            const btnR = document.getElementById('btnR');
+
+            // Clear any old listeners by cloning
+            const newL = btnL.cloneNode(true);
+            const newR = btnR.cloneNode(true);
+            btnL.replaceWith(newL);
+            btnR.replaceWith(newR);
+
+            function moveLeft() {
+                if (dropping || won) return;
+                const glass = document.getElementById('glass');
+                clawPos = Math.max(8, clawPos - STEP);
+                document.getElementById('claw').style.left = clawPos + 'px';
+            }
+            function moveRight() {
+                if (dropping || won) return;
+                const glass = document.getElementById('glass');
+                const max = glass.clientWidth - 48;
+                clawPos = Math.min(max, clawPos + STEP);
+                document.getElementById('claw').style.left = clawPos + 'px';
+            }
+
+            // Single tap
+            newL.addEventListener('click', moveLeft);
+            newR.addEventListener('click', moveRight);
+
+            // Hold to move continuously — touch
+            function startRepeat(fn) {
+                fn();
+                moveInterval = setInterval(fn, 100);
+            }
+            function stopRepeat() { clearInterval(moveInterval); }
+
+            newL.addEventListener('touchstart', e => { e.preventDefault(); startRepeat(moveLeft); }, { passive: false });
+            newL.addEventListener('touchend', stopRepeat);
+            newL.addEventListener('touchcancel', stopRepeat);
+
+            newR.addEventListener('touchstart', e => { e.preventDefault(); startRepeat(moveRight); }, { passive: false });
+            newR.addEventListener('touchend', stopRepeat);
+            newR.addEventListener('touchcancel', stopRepeat);
+
+            // Hold to move continuously — mouse
+            newL.addEventListener('mousedown', () => startRepeat(moveLeft));
+            newL.addEventListener('mouseup', stopRepeat);
+            newL.addEventListener('mouseleave', stopRepeat);
+
+            newR.addEventListener('mousedown', () => startRepeat(moveRight));
+            newR.addEventListener('mouseup', stopRepeat);
+            newR.addEventListener('mouseleave', stopRepeat);
+        }
+
+        function grab() {
+            if (dropping || won) return;
+            dropping = true;
+            document.getElementById('btnG').disabled = true;
+            const msg = document.getElementById('msg');
+            msg.textContent = 'ASEK';
+
+            const claw = document.getElementById('claw');
+            const prize = document.getElementById('prize');
+            const glass = document.getElementById('glass');
+
+            // Drop
+            claw.className = 'claw-asm drop';
+
+            setTimeout(() => {
+                // Generous collision: claw center vs prize center
+                const clawCenter = clawPos + 20;
+                const prizeRect = prize.getBoundingClientRect();
+                const glassRect = glass.getBoundingClientRect();
+                const prizeCenter = prizeRect.left - glassRect.left + prizeRect.width / 2;
+                const diff = Math.abs(clawCenter - prizeCenter);
+
+                if (diff < 65) {
+                    // WIN — generous!
+                    won = true;
+                    msg.textContent = 'YAYYY DAPET, EZ BET NJR';
+                    prize.classList.add('grabbed');
+                    prize.style.left = clawPos + 'px';
+                    prize.style.transform = 'translateX(-8px)';
+
+                    setTimeout(() => {
+                        claw.className = 'claw-asm lift';
+                        prize.style.bottom = (glass.clientHeight - 80) + 'px';
+
+                        setTimeout(() => go(3), 850);
+                    }, 400);
+
+                } else {
+                    // MISS
+                    msg.textContent = 'Lengeh';
+                    setTimeout(() => {
+                        claw.className = 'claw-asm lift';
+                        setTimeout(() => {
+                            claw.className = 'claw-asm';
+                            dropping = false;
+                            document.getElementById('btnG').disabled = false;
+                            msg.textContent = 'Geser trs ambil!';
+                        }, 450);
+                    }, 350);
+                }
+            }, 500);
+        }
+
+        /* ========================================
+           SCENE 4 — PROPOSAL / NO BUTTON TRICK
+           ======================================== */
+        function initNo() {
+            const no = document.getElementById('btnNo');
+
+            function flee() {
+                const vw = window.innerWidth;
+                const vh = window.innerHeight;
+                const bw = no.offsetWidth;
+                const bh = no.offsetHeight;
+                const pad = 16;
+                no.style.position = 'fixed';
+                no.style.left = (pad + Math.random() * (vw - bw - pad * 2)) + 'px';
+                no.style.top = (60 + Math.random() * (vh - bh - 100)) + 'px';
+                no.style.zIndex = '50';
+            }
+
+            no.addEventListener('mouseenter', flee);
+            no.addEventListener('touchstart', e => { e.preventDefault(); flee(); }, { passive: false });
+            no.addEventListener('pointerdown', e => { if (e.pointerType === 'touch') { e.preventDefault(); flee(); } });
+            no.addEventListener('click', e => { e.preventDefault(); flee(); });
+
+            // Start in its natural position
+            no.style.position = 'relative';
+            no.style.left = 'auto';
+            no.style.top = 'auto';
+        }
+
+        /* ========================================
+           YES → CONFETTI + NEXT SCENE
+           ======================================== */
+        function iya() {
+            boom();
+            setTimeout(() => go(5), 1600);
+        }
+
+        function boom() {
+            const box = document.getElementById('confettiBox');
+            box.innerHTML = '';
+            const cls = ['#f8c8d4', '#f0a4b8', '#e8899e', '#d97089', '#c75b7a',
+                '#a3d9a5', '#ffd1dc', '#ffe4ec', '#ffb3c6', '#ff8fab',
+                '#ffc2d1', '#fbb1bd', '#f9d5e5', '#ee9ca7', '#72c576'];
+            for (let i = 0; i < 110; i++) {
+                const d = document.createElement('div');
+                d.className = 'confetti';
+                d.style.left = Math.random() * 100 + '%';
+                d.style.background = cls[Math.floor(Math.random() * cls.length)];
+                d.style.width = (6 + Math.random() * 8) + 'px';
+                d.style.height = (6 + Math.random() * 8) + 'px';
+                d.style.borderRadius = Math.random() > .5 ? '50%' : '2px';
+                d.style.animationDuration = (1.4 + Math.random() * 2.4) + 's';
+                d.style.animationDelay = (Math.random() * .55) + 's';
+                box.appendChild(d);
+            }
+            setTimeout(() => { box.innerHTML = ''; }, 4500);
+        }
+
+        /* ========================================
+           SCENE 5 — GIFT BOXES
+           ======================================== */
+        let opened = 0;
+        function buka(el, txt) {
+            if (el.classList.contains('open')) return;
+            el.classList.add('open');
+            el.querySelector('.ico').textContent = '🎀';
+            el.querySelector('.prz').textContent = txt;
+            opened++;
+            if (opened >= 3) {
+                setTimeout(() => {
+                    document.getElementById('bye').classList.add('show');
+                    boom();
+                }, 450);
+            }
+        }
+    </script>
+</body>
+
+</html>
